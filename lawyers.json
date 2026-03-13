@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Олена Коваль",
+    "specialization": "Трудове право",
+    "experience": "8 років",
+    "format": "Онлайн-консультації",
+    "telegram": "https://t.me/online_pravo_help_bot"
+  },
+  {
+    "name": "Андрій Мельник",
+    "specialization": "Цивільне право",
+    "experience": "10 років",
+    "format": "Онлайн-консультації",
+    "telegram": "https://t.me/online_pravo_help_bot"
+  },
+  {
+    "name": "Ірина Бондар",
+    "specialization": "Кредити / борги",
+    "experience": "7 років",
+    "format": "Онлайн-консультації",
+    "telegram": "https://t.me/online_pravo_help_bot"
+  }
+]

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Політика конфіденційності</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f3d2e;
+      color: white;
+      padding: 40px 20px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #145a42;
+      padding: 35px;
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    p, ul {
+      margin-bottom: 18px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: white;
+      font-weight: bold;
+    }
+
+    .back {
+      text-align: center;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Політика конфіденційності</h1>
+
+    <p>
+      Ми поважаємо вашу приватність та дбаємо про захист персональних даних,
+      які ви залишаєте через форму звернення на сайті.
+    </p>
+
+    <p>
+      Надсилаючи звернення, ви погоджуєтеся на обробку наданих вами даних
+      виключно з метою зв’язку з вами, первинного розгляду звернення та
+      організації юридичної консультації.
+    </p>
+
+    <ul>
+      <li>Ми отримуємо лише ті дані, які ви самостійно вказуєте у формі.</li>
+      <li>Ваші дані не передаються стороннім особам без вашої згоди, крім випадків, передбачених законом.</li>
+      <li>Просимо не надсилати через форму надмірно чутливі дані або копії документів без окремої домовленості.</li>
+      <li>Звернення, отримані через сайт, можуть надсилатися в робочу Telegram-групу для оперативного опрацювання.</li>
+      <li>Ми вживаємо розумних заходів для захисту інформації від несанкціонованого доступу.</li>
+    </ul>
+
+    <p>
+      Якщо ви бажаєте уточнити, змінити або видалити надані вами дані,
+      зверніться через Telegram.
+    </p>
+
+    <div class="back">
+      <a href="/">Повернутися на головну</a>
+    </div>
+  </div>
+</body>
+</html>
