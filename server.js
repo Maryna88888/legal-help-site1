@@ -91,7 +91,7 @@ async function handlePrivateMessage(message) {
   if (text === "/start") {
     await sendTelegramMessage(
       chatId,
-      "Вітаємо. Ви звернулися по юридичну допомогу дистанційно.\n\nОпишіть коротко вашу ситуацію у сфері трудового права, цивільних справ або кредитів/боргів. Ваше повідомлення буде передано для опрацювання."
+      "Вітаємо. Ви звернулися по юридичну допомогу дистанційно.\n\nОпишіть коротко вашу ситуацію у сфері трудового права, цивільних справ або кредитів та боргів. Ваше повідомлення буде передано для опрацювання."
     );
 
     await forwardUserMessageToGroup({
@@ -113,20 +113,22 @@ async function handlePrivateMessage(message) {
 
   await sendTelegramMessage(
     chatId,
-    "Дякуємо. Ваше повідомлення отримано. Ви можете написати ще деталі одним або кількома повідомленнями."
+    "Дякуємо. Ваше повідомлення отримано. Найближчим часом вам нададуть відповідь."
   );
 }
 
 async function handleGroupReplyCommand(message) {
-  const text = (message.text || "").trim();
+  const rawText = (message.text || "").trim();
+  const normalizedText = rawText.replace(/^\/reply@\S+/i, "/reply").trim();
 
-  if (!text.startsWith("/reply")) {
+  if (!normalizedText.startsWith("/reply")) {
     return false;
   }
 
-  const match = text.match(/^\/reply\s+(\d+)\s+([\s\S]+)/);
+  const withoutCommand = normalizedText.replace(/^\/reply/i, "").trim();
+  const firstSpaceIndex = withoutCommand.indexOf(" ");
 
-  if (!match) {
+  if (firstSpaceIndex === -1) {
     await sendTelegramMessage(
       CHAT_ID,
       "Неправильний формат.\nВикористовуйте:\n/reply ID_КОРИСТУВАЧА текст відповіді"
@@ -134,29 +136,28 @@ async function handleGroupReplyCommand(message) {
     return true;
   }
 
-  const userId = match[1];
-  const replyText = match[2].trim();
+  const userId = withoutCommand.slice(0, firstSpaceIndex).trim();
+  const replyText = withoutCommand.slice(firstSpaceIndex + 1).trim();
 
-  if (!replyText) {
+  if (!/^\d+$/.test(userId) || !replyText) {
     await sendTelegramMessage(
       CHAT_ID,
-      "Текст відповіді порожній. Приклад:\n/reply 123456789 Доброго дня, опишіть детальніше вашу ситуацію."
+      "Неправильний формат.\nПриклад:\n/reply 1646910753 Доброго дня, опишіть вашу ситуацію."
     );
     return true;
   }
 
-  const sender = message.from || {};
-  const senderName = sender.first_name || "Юрист";
-
   const result = await sendTelegramMessage(
     userId,
-    `✉️ Відповідь юриста\n\n${replyText}`
+    `✉️ Відповідь юриста
+
+${replyText}`
   );
 
   if (result.ok) {
     await sendTelegramMessage(
       CHAT_ID,
-      `✅ Відповідь успішно надіслана користувачу ${userId}.\nВід: ${senderName}`
+      `✅ Відповідь успішно надіслана користувачу ${userId}.`
     );
   } else {
     await sendTelegramMessage(
@@ -179,8 +180,7 @@ async function handleTelegramMessage(message) {
     return;
   }
 
-  const isTargetGroup =
-    String(message.chat.id) === String(CHAT_ID);
+  const isTargetGroup = String(message.chat.id) === String(CHAT_ID);
 
   if (isTargetGroup && message.text) {
     await handleGroupReplyCommand(message);
@@ -288,5 +288,3 @@ server.listen(PORT, () => {
   console.log(`Сервер працює на порту ${PORT}`);
   pollTelegramUpdates();
 });
-
- 

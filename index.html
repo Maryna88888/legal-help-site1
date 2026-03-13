@@ -1,428 +1,485 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Юридична допомога дистанційно</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    html {
+      scroll-behavior: smooth;
+    }
 
-<title>Юридична допомога дистанційно</title>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #1f3a2c;
+      background-color: #dfeee3;
+      background-image: url("https://www.transparenttextures.com/patterns/green-leaves.png");
+    }
 
-<style>
+    header {
+      background: #2f5e46;
+      color: white;
+      text-align: center;
+      padding: 24px 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 0.3px;
+    }
 
-body{
-font-family:Arial;
-line-height:1.6;
-background:#e8f8ef;
-color:#1a3d2b;
-background-image:url("https://www.transparenttextures.com/patterns/leaf.png");
-}
+    .hero {
+      max-width: 1150px;
+      margin: 30px auto 0;
+      padding: 0 20px;
+    }
 
-header{
-background:#c8f5da;
-padding:20px;
-text-align:center;
-}
+    .hero-box {
+      background: rgba(255, 255, 255, 0.82);
+      border-radius: 18px;
+      padding: 70px 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(2px);
+    }
 
-header h1{
-font-size:24px;
-}
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: #244a36;
+    }
 
-.hero{
-background:linear-gradient(135deg,#b8f0d0,#dff9ea);
-padding:80px 20px;
-text-align:center;
-}
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto 30px;
+      font-size: 18px;
+      color: #355a46;
+    }
 
-.hero h2{
-font-size:40px;
-margin-bottom:20px;
-}
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
 
-.hero p{
-max-width:800px;
-margin:auto;
-margin-bottom:30px;
-font-size:18px;
-}
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #2f5e46;
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 1px solid #d6e7dc;
+      transition: 0.2s ease;
+      box-shadow: 0 4px 10px rgba(47, 94, 70, 0.08);
+    }
 
-.buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-}
+    .btn:hover {
+      background: #f6f6f6;
+      transform: translateY(-1px);
+    }
 
-.btn{
-padding:14px 22px;
-background:white;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-color:#2f6d4a;
-}
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 60px 20px 20px;
+    }
 
-.btn:hover{
-background:#f0f0f0;
-}
+    section h3 {
+      text-align: center;
+      font-size: 31px;
+      margin-bottom: 34px;
+      color: #244a36;
+    }
 
-section{
-padding:60px 20px;
-max-width:1100px;
-margin:auto;
-}
+    .cards,
+    .lawyers,
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
 
-section h3{
-text-align:center;
-font-size:30px;
-margin-bottom:40px;
-}
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      text-align: center;
+    }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+    .card,
+    .lawyer-card,
+    .step,
+    .trust-item,
+    form {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 26px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    }
 
-.card{
-background:#dff9ea;
-padding:25px;
-border-radius:10px;
-}
+    .card h4,
+    .lawyer-card h4,
+    .step h4 {
+      margin-bottom: 14px;
+      color: #2f5e46;
+      font-size: 22px;
+    }
 
-.card ul{
-padding-left:20px;
-}
+    .card ul {
+      padding-left: 18px;
+    }
 
-.steps{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-text-align:center;
-}
+    .card li {
+      margin-bottom: 6px;
+    }
 
-.step{
-background:#dff9ea;
-padding:25px;
-border-radius:10px;
-}
+    .step-number {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #2f5e46;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-weight: bold;
+      font-size: 20px;
+    }
 
-.lawyers{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+    .lawyer-card p {
+      margin-bottom: 8px;
+    }
 
-.lawyer-card{
-background:#dff9ea;
-padding:25px;
-border-radius:10px;
-}
+    .lawyer-card a {
+      display: inline-block;
+      margin-top: 12px;
+      background: #2f5e46;
+      color: white;
+      padding: 11px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.lawyer-card a{
-display:inline-block;
-margin-top:10px;
-background:white;
-padding:10px 15px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-color:#2f6d4a;
-}
+    .lawyer-card a:hover {
+      background: #264d3a;
+    }
 
-form{
-background:#dff9ea;
-padding:30px;
-border-radius:10px;
-max-width:650px;
-margin:auto;
-}
+    .form-wrap {
+      max-width: 720px;
+      margin: auto;
+    }
 
-form input,
-form select,
-form textarea{
-width:100%;
-padding:12px;
-margin-bottom:15px;
-border-radius:8px;
-border:1px solid #cdebdc;
-}
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 13px 14px;
+      margin-bottom: 15px;
+      border: 1px solid #d7e5dc;
+      border-radius: 10px;
+      font-size: 16px;
+      background: #fff;
+      color: #244a36;
+    }
 
-form button{
-width:100%;
-padding:14px;
-background:white;
-border:none;
-border-radius:8px;
-font-weight:bold;
-color:#2f6d4a;
-cursor:pointer;
-}
+    form button {
+      width: 100%;
+      padding: 14px;
+      background: #2f5e46;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-.status{
-text-align:center;
-margin-top:10px;
-}
+    form button:hover {
+      background: #264d3a;
+    }
 
-footer{
-background:#c8f5da;
-text-align:center;
-padding:25px;
-margin-top:40px;
-}
+    .status {
+      text-align: center;
+      margin-top: 12px;
+      font-weight: bold;
+      min-height: 24px;
+      color: #2f5e46;
+    }
 
-</style>
+    .telegram-note,
+    .disclaimer {
+      text-align: center;
+      margin-top: 16px;
+      color: #355a46;
+    }
 
+    .telegram-note a {
+      color: #2f5e46;
+      font-weight: bold;
+    }
+
+    footer {
+      max-width: 1150px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .footer-box {
+      background: #2f5e46;
+      color: white;
+      text-align: center;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    }
+
+    .footer-box p + p {
+      margin-top: 10px;
+    }
+
+    .footer-box a {
+      color: white;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 24px;
+      }
+
+      .hero-box {
+        padding: 50px 18px;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section h3 {
+        font-size: 27px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-<h1>Юридична допомога дистанційно</h1>
-</header>
-
-
-<section class="hero">
-
-<h2>Не залишайтеся з проблемою сам на сам</h2>
-
-<p>
-Онлайн допомога з питань трудового права,
-цивільних справ, кредитів та боргів.
-</p>
-
-<div class="buttons">
-
-<a href="#form" class="btn">
-Отримати консультацію
-</a>
-
-<a href="#lawyers" class="btn">
-Знайти юриста
-</a>
-
-<a href="https://t.me/online_pravo_help_bot" class="btn" target="_blank">
-Написати у Telegram
-</a>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h3>Напрями допомоги</h3>
-
-<div class="cards">
-
-<div class="card">
-<h4>Трудове право</h4>
-<ul>
-<li>незаконне звільнення</li>
-<li>невиплата зарплати</li>
-<li>трудові спори</li>
-</ul>
-</div>
-
-<div class="card">
-<h4>Цивільне право</h4>
-<ul>
-<li>договори</li>
-<li>майнові спори</li>
-<li>відшкодування шкоди</li>
-</ul>
-</div>
-
-<div class="card">
-<h4>Кредити / борги</h4>
-<ul>
-<li>спори з банками</li>
-<li>колектори</li>
-<li>прострочені кредити</li>
-</ul>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h3>Як це працює</h3>
-
-<div class="steps">
-
-<div class="step">
-<h4>1</h4>
-<p>Опишіть вашу проблему</p>
-</div>
-
-<div class="step">
-<h4>2</h4>
-<p>Ми підберемо юриста</p>
-</div>
-
-<div class="step">
-<h4>3</h4>
-<p>Отримайте консультацію онлайн</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section id="lawyers">
-
-<h3>Юристи та адвокати</h3>
-
-<div class="lawyers" id="lawyersList"></div>
-
-</section>
-
-
-
-<section id="form">
-
-<h3>Залишити звернення</h3>
-
-<form id="contactForm">
-
-<input type="text" id="name" placeholder="Ваше ім'я" required>
-
-<input type="text" id="contact" placeholder="Телефон або Telegram" required>
-
-<select id="type" required>
-<option value="">Оберіть напрям</option>
-<option>Трудове право</option>
-<option>Цивільне право</option>
-<option>Кредити / борги</option>
-</select>
-
-<textarea id="message" rows="5" placeholder="Опишіть вашу ситуацію" required></textarea>
-
-<button type="submit">Надіслати звернення</button>
-
-<div class="status" id="status"></div>
-
-</form>
-
-</section>
-
-
-
-<footer>
-
-<p>© 2026 Юридична допомога дистанційно</p>
-
-<p>
-<a href="/privacy.html">
-Політика конфіденційності
-</a>
-</p>
-
-</footer>
-
-
-
-<script>
-
-async function loadLawyers(){
-
-const response = await fetch("/lawyers")
-
-const lawyers = await response.json()
-
-const container = document.getElementById("lawyersList")
-
-container.innerHTML=""
-
-lawyers.forEach(lawyer=>{
-
-const card=document.createElement("div")
-
-card.className="lawyer-card"
-
-card.innerHTML=`
-
-<h4>${lawyer.name}</h4>
-
-<p><strong>Спеціалізація:</strong> ${lawyer.specialization}</p>
-
-<p><strong>Досвід:</strong> ${lawyer.experience}</p>
-
-<a href="${lawyer.telegram}" target="_blank">
-Написати юристу
-</a>
-
-`
-
-container.appendChild(card)
-
-})
-
-}
-
-loadLawyers()
-
-
-
-const form=document.getElementById("contactForm")
-
-const status=document.getElementById("status")
-
-form.addEventListener("submit",async e=>{
-
-e.preventDefault()
-
-const data={
-name:document.getElementById("name").value,
-contact:document.getElementById("contact").value,
-type:document.getElementById("type").value,
-message:document.getElementById("message").value
-}
-
-status.textContent="Надсилання..."
-
-const response=await fetch("/send-request",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify(data)
-
-})
-
-const result=await response.json()
-
-if(result.success){
-
-status.textContent="Звернення надіслано"
-
-form.reset()
-
-}else{
-
-status.textContent="Помилка надсилання"
-
-}
-
-})
-
-</script>
+  <header>
+    <h1>Юридична допомога дистанційно</h1>
+  </header>
+
+  <section class="hero">
+    <div class="hero-box">
+      <h2>Не залишайтеся з проблемою сам на сам</h2>
+      <p>
+        Онлайн допомога з питань трудового права, цивільних справ, кредитів та боргів.
+        Напишіть у Telegram або залиште звернення через форму.
+      </p>
+
+      <div class="buttons">
+        <a href="#form" class="btn">Отримати консультацію</a>
+        <a href="#lawyers" class="btn">Знайти юриста</a>
+        <a href="https://t.me/online_pravo_help_bot" class="btn" target="_blank">Написати у Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Напрями допомоги</h3>
+
+    <div class="cards">
+      <div class="card">
+        <h4>Трудове право</h4>
+        <ul>
+          <li>Незаконне звільнення</li>
+          <li>Невиплата зарплати</li>
+          <li>Трудові спори</li>
+          <li>Поновлення на роботі</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>Цивільне право</h4>
+        <ul>
+          <li>Договори</li>
+          <li>Майнові спори</li>
+          <li>Відшкодування шкоди</li>
+          <li>Захист прав споживача</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>Кредити / борги</h4>
+        <ul>
+          <li>Спори з банками</li>
+          <li>Колектори</li>
+          <li>Прострочені кредити</li>
+          <li>Реструктуризація боргу</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Як це працює</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Опишіть проблему</h4>
+        <p>Коротко напишіть, з яким питанням ви звертаєтесь.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Ми підберемо юриста</h4>
+        <p>Допоможемо знайти спеціаліста за вашим напрямом звернення.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Отримайте консультацію</h4>
+        <p>Зв’яжіться онлайн у зручний спосіб і отримайте відповідь.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="lawyers">
+    <h3>Юристи та адвокати</h3>
+    <div class="lawyers" id="lawyersList"></div>
+  </section>
+
+  <section id="form">
+    <h3>Залишити звернення</h3>
+
+    <div class="form-wrap">
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Ваше ім'я" required>
+        <input type="text" id="contact" placeholder="Телефон або Telegram" required>
+
+        <select id="type" required>
+          <option value="">Оберіть напрям</option>
+          <option>Трудове право</option>
+          <option>Цивільне право</option>
+          <option>Кредити / борги</option>
+        </select>
+
+        <textarea id="message" rows="5" placeholder="Опишіть вашу ситуацію" required></textarea>
+
+        <button type="submit">Надіслати звернення</button>
+
+        <div class="status" id="status"></div>
+
+        <p class="telegram-note">
+          Або напишіть юристу одразу у
+          <a href="https://t.me/online_pravo_help_bot" target="_blank">Telegram</a>.
+        </p>
+
+        <p class="disclaimer">
+          Надсилаючи звернення, ви погоджуєтесь на обробку персональних даних
+          відповідно до політики конфіденційності.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <h3>Чому нам довіряють</h3>
+
+    <div class="trust">
+      <div class="trust-item">Конфіденційно</div>
+      <div class="trust-item">Онлайн по всій Україні</div>
+      <div class="trust-item">Швидкий зворотний зв’язок</div>
+      <div class="trust-item">Зрозумілий порядок дій</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-box">
+      <p>© 2026 Юридична допомога дистанційно</p>
+      <p><a href="/privacy.html">Політика конфіденційності</a></p>
+    </div>
+  </footer>
+
+  <script>
+    async function loadLawyers() {
+      const response = await fetch("/lawyers");
+      const lawyers = await response.json();
+
+      const container = document.getElementById("lawyersList");
+      container.innerHTML = "";
+
+      lawyers.forEach(lawyer => {
+        const card = document.createElement("div");
+        card.className = "lawyer-card";
+
+        card.innerHTML = `
+          <h4>${lawyer.name}</h4>
+          <p><strong>Спеціалізація:</strong> ${lawyer.specialization}</p>
+          <p><strong>Досвід:</strong> ${lawyer.experience}</p>
+          <p><strong>Формат:</strong> ${lawyer.format || "Онлайн-консультації"}</p>
+          <a href="${lawyer.telegram}" target="_blank">Написати юристу</a>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    loadLawyers();
+
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById("name").value,
+        contact: document.getElementById("contact").value,
+        type: document.getElementById("type").value,
+        message: document.getElementById("message").value
+      };
+
+      status.textContent = "Надсилання...";
+
+      try {
+        const response = await fetch("/send-request", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          status.textContent = "Звернення надіслано";
+          form.reset();
+        } else {
+          status.textContent = "Помилка надсилання";
+        }
+      } catch (error) {
+        status.textContent = "Помилка з’єднання";
+      }
+    });
+  </script>
 
 </body>
 </html>

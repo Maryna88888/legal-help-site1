@@ -13,64 +13,97 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #0f3d2e;
-      color: white;
-      padding: 40px 20px;
       line-height: 1.7;
+      color: #1f3a2c;
+      background-color: #dfeee3;
+      background-image: url("https://www.transparenttextures.com/patterns/green-leaves.png");
+      padding: 40px 20px;
     }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #145a42;
-      padding: 35px;
-      border-radius: 12px;
+    .box {
+      max-width: 950px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 18px;
+      padding: 38px 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 30px;
+      color: #244a36;
+      margin-bottom: 28px;
+      font-size: 34px;
     }
 
     p, ul {
       margin-bottom: 18px;
+      color: #355a46;
+      font-size: 17px;
     }
 
     ul {
       padding-left: 20px;
     }
 
-    a {
-      color: white;
-      font-weight: bold;
+    li {
+      margin-bottom: 8px;
     }
 
     .back {
       text-align: center;
-      margin-top: 25px;
+      margin-top: 30px;
+    }
+
+    .back a {
+      display: inline-block;
+      background: #2f5e46;
+      color: white;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .back a:hover {
+      background: #264d3a;
+    }
+
+    @media (max-width: 768px) {
+      .box {
+        padding: 28px 18px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      p, ul {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="box">
     <h1>Політика конфіденційності</h1>
 
     <p>
       Ми поважаємо вашу приватність та дбаємо про захист персональних даних,
-      які ви залишаєте через форму звернення на сайті.
+      які ви залишаєте через форму звернення на сайті або через Telegram.
     </p>
 
     <p>
-      Надсилаючи звернення, ви погоджуєтеся на обробку наданих вами даних
+      Надсилаючи звернення, ви погоджуєтесь на обробку наданих вами даних
       виключно з метою зв’язку з вами, первинного розгляду звернення та
       організації юридичної консультації.
     </p>
 
     <ul>
-      <li>Ми отримуємо лише ті дані, які ви самостійно вказуєте у формі.</li>
+      <li>Ми отримуємо лише ті дані, які ви вказуєте добровільно.</li>
       <li>Ваші дані не передаються стороннім особам без вашої згоди, крім випадків, передбачених законом.</li>
-      <li>Просимо не надсилати через форму надмірно чутливі дані або копії документів без окремої домовленості.</li>
-      <li>Звернення, отримані через сайт, можуть надсилатися в робочу Telegram-групу для оперативного опрацювання.</li>
+      <li>Просимо не надсилати через форму або Telegram надмірно чутливі дані чи копії документів без окремої домовленості.</li>
+      <li>Звернення з сайту та Telegram можуть оброблятися через робочі канали зв’язку для оперативного опрацювання.</li>
       <li>Ми вживаємо розумних заходів для захисту інформації від несанкціонованого доступу.</li>
     </ul>
 
