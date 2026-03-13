@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-const BOT_TOKEN = "ТУТ_ТВІЙ_ТОКЕН";
+const BOT_TOKEN = "7759788349:AAGmiHOIqpX_Z1eW5ONaIi_gTXzQavSDqH4";
 const CHAT_ID = "-5230839823";
 
 const PORT = process.env.PORT || 3000;
