@@ -1,0 +1,9 @@
+{
+  "name": "legal-help-site",
+  "version": "1.0.0",
+  "description": "Юридична допомога дистанційно",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
