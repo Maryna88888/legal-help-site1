@@ -3,50 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Юридична допомога дистанційно</title>
+  <title>Юрист онлайн — юридична допомога дистанційно | Трудове право, цивільні справи, кредити та борги</title>
+  <meta name="description" content="Юридична допомога онлайн в Україні: консультація юриста з трудового права, цивільних справ, кредитів та боргів. Напишіть у Telegram або залиште звернення." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Юридична допомога дистанційно" />
+  <meta property="og:description" content="Юрист онлайн: трудове право, цивільні справи, кредити та борги." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR-DOMAIN.com/" />
+  <link rel="canonical" href="https://YOUR-DOMAIN.com/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Юридична допомога дистанційно",
+    "url":"https://YOUR-DOMAIN.com/",
+    "logo":"https://YOUR-DOMAIN.com/favicon.png",
+    "sameAs":["https://t.me/online_pravo_help_bot"]
+  }
+  </script>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
       color: #1f3a2c;
       background: #e3efe7;
       background-image: url("https://www.transparenttextures.com/patterns/green-leaves.png");
-      padding: 40px;
+      padding: 32px;
     }
-
     .page-frame {
       max-width: 1180px;
       margin: auto;
-      background: white;
+      background: #fff;
       border-radius: 22px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
       overflow: hidden;
       border: 8px solid transparent;
       background-clip: padding-box;
       position: relative;
     }
-
     .page-frame::before {
       content: "";
       position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
+      inset: -10px;
       background-image: url("https://www.transparenttextures.com/patterns/green-leaves.png");
       z-index: -1;
       border-radius: 26px;
       opacity: 0.6;
     }
-
     header {
       background: #2f5e46;
       color: white;
@@ -57,48 +63,36 @@
       align-items: center;
       gap: 12px;
     }
-
-    .logo {
-      font-size: 34px;
-    }
-
-    header h1 {
-      font-size: 28px;
-    }
-
+    .logo { font-size: 34px; }
+    header h1 { font-size: 28px; }
     .hero {
-      padding: 70px 30px;
+      padding: 70px 30px 50px;
       text-align: center;
       background:
-        linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+        linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)),
         url("https://www.transparenttextures.com/patterns/green-leaves.png");
     }
-
     .hero h2 {
       font-size: 40px;
       margin-bottom: 20px;
       color: #244a36;
     }
-
     .hero p {
-      max-width: 750px;
-      margin: auto;
-      margin-bottom: 30px;
+      max-width: 820px;
+      margin: 0 auto 30px;
       font-size: 18px;
       color: #355a46;
     }
-
     .buttons {
       display: flex;
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
     }
-
     .btn {
       background: #2f5e46;
       color: white;
-      padding: 14px 26px;
+      padding: 14px 24px;
       border-radius: 12px;
       text-decoration: none;
       font-weight: bold;
@@ -106,64 +100,45 @@
       position: relative;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
-
     .btn::before {
       content: "";
       position: absolute;
-      top: -8px;
-      left: -8px;
-      right: -8px;
-      bottom: -8px;
+      top: -8px; left: -8px; right: -8px; bottom: -8px;
       background-image: url("https://www.transparenttextures.com/patterns/green-leaves.png");
       border-radius: 14px;
       z-index: -1;
       opacity: 0.6;
     }
-
-    .btn:hover {
-      background: #244a36;
-    }
-
-    section {
-      padding: 60px 25px;
-    }
-
+    .btn:hover { background: #244a36; }
+    section { padding: 60px 25px; }
     section h3 {
       text-align: center;
       font-size: 30px;
       margin-bottom: 35px;
       color: #244a36;
     }
-
-    .cards,
-    .lawyers {
+    .seo-text {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      color: #355a46;
+      font-size: 18px;
+    }
+    .cards, .lawyers, .trust {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
-
-    .card,
-    .lawyer-card {
+    .card, .lawyer-card, .trust-item {
       background: white;
       border-radius: 16px;
       padding: 25px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     }
-
-    .card h4,
-    .lawyer-card h4 {
-      margin-bottom: 12px;
-      color: #2f5e46;
-    }
-
-    .card ul {
-      padding-left: 18px;
-    }
-
-    .card li {
-      margin-bottom: 6px;
-    }
-
+    .card h4, .lawyer-card h4 { margin-bottom: 12px; color: #2f5e46; }
+    .card ul { padding-left: 18px; }
+    .card li { margin-bottom: 6px; }
+    .lawyer-card p { margin-bottom: 8px; }
     .lawyer-card a {
       display: inline-block;
       margin-top: 12px;
@@ -174,30 +149,21 @@
       text-decoration: none;
       font-weight: bold;
     }
-
     .form-text {
       text-align: center;
-      max-width: 650px;
-      margin: 0 auto 25px auto;
+      max-width: 700px;
+      margin: 0 auto 25px;
       font-size: 17px;
       color: #355a46;
     }
-
-    .form-wrap {
-      max-width: 700px;
-      margin: auto;
-    }
-
+    .form-wrap { max-width: 760px; margin: auto; }
     form {
       background: white;
       padding: 25px;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     }
-
-    form input,
-    form select,
-    form textarea {
+    form input, form select, form textarea {
       width: 100%;
       padding: 13px;
       margin-bottom: 15px;
@@ -205,7 +171,6 @@
       border-radius: 10px;
       font-size: 16px;
     }
-
     form button {
       width: 100%;
       padding: 14px;
@@ -216,18 +181,14 @@
       font-weight: bold;
       cursor: pointer;
     }
-
     .status {
       text-align: center;
       margin-top: 12px;
       font-weight: bold;
       color: #2f5e46;
+      min-height: 24px;
     }
-
-    footer {
-      padding: 40px 20px;
-    }
-
+    footer { padding: 40px 20px; }
     .footer-box {
       background: #2f5e46;
       color: white;
@@ -235,14 +196,15 @@
       padding: 24px;
       border-radius: 16px;
     }
-
-    .footer-box a {
-      color: white;
-      font-weight: bold;
+    .footer-box a { color: white; font-weight: bold; }
+    @media (max-width: 768px) {
+      body { padding: 12px; }
+      .hero h2 { font-size: 32px; }
+      .hero p, .seo-text { font-size: 16px; }
+      header h1 { font-size: 24px; }
     }
   </style>
 </head>
-
 <body>
   <div class="page-frame">
     <header>
@@ -251,13 +213,11 @@
     </header>
 
     <section class="hero">
-      <h2>Не залишайтеся з проблемою сам на сам</h2>
-
+      <h2>Юрист онлайн в Україні</h2>
       <p>
-        Онлайн допомога з питань трудового права,
-        цивільних справ, кредитів та боргів.
+        Консультація юриста онлайн з питань трудового права, цивільних справ, кредитів та боргів.
+        Напишіть у Telegram або залиште звернення через форму.
       </p>
-
       <div class="buttons">
         <a href="#form" class="btn">Отримати консультацію</a>
         <a href="#lawyers" class="btn">Знайти юриста</a>
@@ -266,33 +226,43 @@
     </section>
 
     <section>
-      <h3>Напрями допомоги</h3>
+      <h3>Юридична допомога онлайн в Україні</h3>
+      <p class="seo-text">
+        Юридична допомога онлайн — це можливість швидко отримати консультацію юриста дистанційно.
+        Ми допомагаємо у справах щодо незаконного звільнення, невиплати зарплати, майнових спорів,
+        договорів, кредитів, боргів, спорів із банками та колекторами. Якщо вам потрібен юрист онлайн,
+        залиште звернення на сайті або напишіть у Telegram.
+      </p>
+    </section>
 
+    <section>
+      <h3>Напрями допомоги</h3>
       <div class="cards">
         <div class="card">
           <h4>Трудове право</h4>
           <ul>
             <li>Незаконне звільнення</li>
-            <li>Невиплата зарплати</li>
+            <li>Невиплата заробітної плати</li>
             <li>Трудові спори</li>
+            <li>Поновлення на роботі</li>
           </ul>
         </div>
-
         <div class="card">
           <h4>Цивільне право</h4>
           <ul>
             <li>Майнові спори</li>
             <li>Договори</li>
             <li>Відшкодування шкоди</li>
+            <li>Захист прав споживача</li>
           </ul>
         </div>
-
         <div class="card">
           <h4>Кредити / борги</h4>
           <ul>
             <li>Спори з банками</li>
             <li>Колектори</li>
             <li>Прострочені кредити</li>
+            <li>Реструктуризація боргу</li>
           </ul>
         </div>
       </div>
@@ -303,39 +273,62 @@
       <div class="lawyers" id="lawyersList"></div>
     </section>
 
+    <section>
+      <h3>Часті питання</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>Чи можна отримати консультацію юриста онлайн?</h4>
+          <p>Так, ви можете звернутися дистанційно через сайт або Telegram і отримати консультацію онлайн.</p>
+        </div>
+        <div class="card">
+          <h4>З якими питаннями ви допомагаєте?</h4>
+          <p>Трудове право, цивільні справи, кредити, борги, спори з банками та колекторами.</p>
+        </div>
+        <div class="card">
+          <h4>Що робити, якщо не виплатили зарплату?</h4>
+          <p>Опишіть ситуацію в заявці — юрист підкаже можливі кроки захисту ваших прав.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="form">
       <h3>Залишити звернення</h3>
-
       <p class="form-text">
-        Опишіть вашу ситуацію коротко. Звернення буде передано юристу,
-        який зв’яжеться з вами для консультації.
+        Опишіть вашу ситуацію коротко. Звернення буде збережене в системі,
+        передане юристу і продубльоване в Telegram.
       </p>
 
       <div class="form-wrap">
         <form id="contactForm">
           <input type="text" id="name" placeholder="Ваше ім'я" required />
           <input type="text" id="contact" placeholder="Телефон або Telegram" required />
-
           <select id="type" required>
             <option value="">Оберіть напрям</option>
             <option>Трудове право</option>
             <option>Цивільне право</option>
             <option>Кредити / борги</option>
           </select>
-
           <textarea id="message" rows="5" placeholder="Опишіть вашу ситуацію" required></textarea>
-
           <button type="submit">Надіслати звернення</button>
-
           <div class="status" id="status"></div>
         </form>
+      </div>
+    </section>
+
+    <section>
+      <h3>Чому нам довіряють</h3>
+      <div class="trust">
+        <div class="trust-item">Конфіденційно</div>
+        <div class="trust-item">Юрист онлайн по всій Україні</div>
+        <div class="trust-item">Швидкий зворотний зв’язок</div>
+        <div class="trust-item">Зрозумілий порядок дій</div>
       </div>
     </section>
 
     <footer>
       <div class="footer-box">
         <p>© 2026 Юридична допомога дистанційно</p>
-        <p><a href="/privacy.html">Політика конфіденційності</a></p>
+        <p><a href="/privacy.html">Політика конфіденційності</a> · <a href="/admin.html">Адмін</a></p>
       </div>
     </footer>
   </div>
@@ -344,21 +337,19 @@
     async function loadLawyers() {
       const response = await fetch("/lawyers");
       const lawyers = await response.json();
-
       const container = document.getElementById("lawyersList");
       container.innerHTML = "";
 
       lawyers.forEach((lawyer) => {
         const card = document.createElement("div");
         card.className = "lawyer-card";
-
         card.innerHTML = `
           <h4>${lawyer.name}</h4>
           <p><strong>Спеціалізація:</strong> ${lawyer.specialization}</p>
           <p><strong>Досвід:</strong> ${lawyer.experience}</p>
+          <p><strong>Формат:</strong> ${lawyer.format || "Онлайн консультації"}</p>
           <a href="${lawyer.telegram}" target="_blank">Написати юристу</a>
         `;
-
         container.appendChild(card);
       });
     }
@@ -372,32 +363,33 @@
       e.preventDefault();
 
       const data = {
-        name: document.getElementById("name").value,
-        contact: document.getElementById("contact").value,
-        type: document.getElementById("type").value,
-        message: document.getElementById("message").value
+        name: document.getElementById("name").value.trim(),
+        contact: document.getElementById("contact").value.trim(),
+        type: document.getElementById("type").value.trim(),
+        message: document.getElementById("message").value.trim()
       };
 
       status.textContent = "Надсилання...";
 
-      const response = await fetch("/send-request", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
+      try {
+        const response = await fetch("/send-request", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      if (result.success) {
-        status.textContent = "Звернення надіслано";
-        form.reset();
-      } else {
-        status.textContent = "Помилка надсилання";
+        if (result.success) {
+          status.textContent = "Звернення надіслано";
+          form.reset();
+        } else {
+          status.textContent = result.error || "Помилка надсилання";
+        }
+      } catch (error) {
+        status.textContent = "Помилка з’єднання";
       }
     });
   </script>
 </body>
 </html>
-

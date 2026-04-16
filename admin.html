@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Адмін-панель</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #edf7f0;
+      color: #1f3a2c;
+      padding: 24px;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: auto;
+    }
+    .box {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
+    h1, h2 { color: #244a36; margin-bottom: 18px; }
+    input, select, button, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d7e5dc;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+    button {
+      background: #2f5e46;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      width: auto;
+      min-width: 140px;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .request {
+      border: 1px solid #e3ece6;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      background: #fafdfb;
+    }
+    .meta {
+      color: #4d6b59;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .hidden { display: none; }
+    .status-new { color: #b45309; font-weight: bold; }
+    .status-work { color: #1d4ed8; font-weight: bold; }
+    .status-done { color: #166534; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box" id="loginBox">
+      <h1>Вхід в адмін-панель</h1>
+      <input type="password" id="password" placeholder="Пароль адміністратора" />
+      <button id="loginBtn">Увійти</button>
+      <p id="loginStatus"></p>
+    </div>
+
+    <div class="box hidden" id="adminBox">
+      <div class="row">
+        <h2 style="margin:0;">Заявки</h2>
+        <button id="refreshBtn">Оновити</button>
+        <button id="logoutBtn">Вийти</button>
+      </div>
+      <div id="requests"></div>
+    </div>
+  </div>
+
+  <script>
+    const loginBox = document.getElementById("loginBox");
+    const adminBox = document.getElementById("adminBox");
+    const loginStatus = document.getElementById("loginStatus");
+    const requestsBox = document.getElementById("requests");
+
+    async function login() {
+      const password = document.getElementById("password").value;
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ password })
+      });
+      const data = await res.json();
+      if (data.success) {
+        loginBox.classList.add("hidden");
+        adminBox.classList.remove("hidden");
+        loadRequests();
+      } else {
+        loginStatus.textContent = data.error || "Помилка входу";
+      }
+    }
+
+    async function logout() {
+      await fetch("/api/admin/logout", { method: "POST" });
+      adminBox.classList.add("hidden");
+      loginBox.classList.remove("hidden");
+      requestsBox.innerHTML = "";
+    }
+
+    async function loadRequests() {
+      const res = await fetch("/api/requests");
+      if (res.status === 401) {
+        adminBox.classList.add("hidden");
+        loginBox.classList.remove("hidden");
+        return;
+      }
+      const items = await res.json();
+      requestsBox.innerHTML = "";
+
+      items.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "request";
+
+        const statusClass =
+          item.status === "new" ? "status-new" :
+          item.status === "in_work" ? "status-work" :
+          "status-done";
+
+        div.innerHTML = `
+          <div class="meta">
+            <strong>${item.id}</strong> · ${item.source} · ${new Date(item.createdAt).toLocaleString("uk-UA")}
+          </div>
+          <p><strong>Ім’я:</strong> ${item.name || "-"}</p>
+          <p><strong>Контакт:</strong> ${item.contact || "-"}</p>
+          <p><strong>Напрям:</strong> ${item.type || "-"}</p>
+          <p><strong>User ID:</strong> ${item.userId || "-"}</p>
+          <p><strong>Статус:</strong> <span class="${statusClass}">${item.status}</span></p>
+          <p><strong>Текст:</strong> ${item.message || "-"}</p>
+          <div class="row" style="margin-top:12px;">
+            <select data-id="${item.id}">
+              <option value="new" ${item.status === "new" ? "selected" : ""}>new</option>
+              <option value="in_work" ${item.status === "in_work" ? "selected" : ""}>in_work</option>
+              <option value="done" ${item.status === "done" ? "selected" : ""}>done</option>
+            </select>
+            <button data-save="${item.id}">Зберегти статус</button>
+          </div>
+        `;
+        requestsBox.appendChild(div);
+      });
+
+      document.querySelectorAll("[data-save]").forEach(btn => {
+        btn.addEventListener("click", async () => {
+          const id = btn.getAttribute("data-save");
+          const select = document.querySelector(`select[data-id="${id}"]`);
+          const status = select.value;
+
+          await fetch("/api/requests/status", {
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify({ id, status })
+          });
+
+          loadRequests();
+        });
+      });
+    }
+
+    document.getElementById("loginBtn").addEventListener("click", login);
+    document.getElementById("refreshBtn").addEventListener("click", loadRequests);
+    document.getElementById("logoutBtn").addEventListener("click", logout);
+
+    fetch("/api/requests").then(res => {
+      if (res.ok) {
+        loginBox.classList.add("hidden");
+        adminBox.classList.remove("hidden");
+        loadRequests();
+      }
+    });
+  </script>
+</body>
+</html>

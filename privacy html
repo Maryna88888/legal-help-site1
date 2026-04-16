@@ -4,57 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Політика конфіденційності</title>
+  <meta name="robots" content="index,follow" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: Arial, sans-serif;
       line-height: 1.7;
       color: #1f3a2c;
-      background-color: #dfeee3;
+      background: #e3efe7;
       background-image: url("https://www.transparenttextures.com/patterns/green-leaves.png");
-      padding: 40px 20px;
+      padding: 32px;
     }
-
     .box {
-      max-width: 950px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.88);
-      border-radius: 18px;
-      padding: 38px 28px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      max-width: 980px;
+      margin: auto;
+      background: rgba(255,255,255,0.92);
+      border-radius: 20px;
+      padding: 36px 28px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
     }
-
     h1 {
       text-align: center;
       color: #244a36;
-      margin-bottom: 28px;
-      font-size: 34px;
+      margin-bottom: 26px;
     }
-
-    p, ul {
-      margin-bottom: 18px;
-      color: #355a46;
-      font-size: 17px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .back {
-      text-align: center;
-      margin-top: 30px;
-    }
-
+    p, ul { margin-bottom: 18px; color: #355a46; }
+    ul { padding-left: 20px; }
+    .back { text-align: center; margin-top: 26px; }
     .back a {
       display: inline-block;
       background: #2f5e46;
@@ -64,57 +41,21 @@
       border-radius: 10px;
       font-weight: bold;
     }
-
-    .back a:hover {
-      background: #264d3a;
-    }
-
-    @media (max-width: 768px) {
-      .box {
-        padding: 28px 18px;
-      }
-
-      h1 {
-        font-size: 28px;
-      }
-
-      p, ul {
-        font-size: 16px;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="box">
     <h1>Політика конфіденційності</h1>
-
-    <p>
-      Ми поважаємо вашу приватність та дбаємо про захист персональних даних,
-      які ви залишаєте через форму звернення на сайті або через Telegram.
-    </p>
-
-    <p>
-      Надсилаючи звернення, ви погоджуєтесь на обробку наданих вами даних
-      виключно з метою зв’язку з вами, первинного розгляду звернення та
-      організації юридичної консультації.
-    </p>
-
+    <p>Ми поважаємо вашу приватність та дбаємо про захист персональних даних, які ви залишаєте через форму звернення на сайті або через Telegram.</p>
+    <p>Надсилаючи звернення, ви погоджуєтесь на обробку наданих вами даних виключно з метою зв’язку з вами, первинного розгляду звернення та організації юридичної консультації.</p>
     <ul>
       <li>Ми отримуємо лише ті дані, які ви вказуєте добровільно.</li>
       <li>Ваші дані не передаються стороннім особам без вашої згоди, крім випадків, передбачених законом.</li>
-      <li>Просимо не надсилати через форму або Telegram надмірно чутливі дані чи копії документів без окремої домовленості.</li>
+      <li>Просимо не надсилати надмірно чутливі дані або копії документів без окремої домовленості.</li>
       <li>Звернення з сайту та Telegram можуть оброблятися через робочі канали зв’язку для оперативного опрацювання.</li>
-      <li>Ми вживаємо розумних заходів для захисту інформації від несанкціонованого доступу.</li>
     </ul>
-
-    <p>
-      Якщо ви бажаєте уточнити, змінити або видалити надані вами дані,
-      зверніться через Telegram.
-    </p>
-
-    <div class="back">
-      <a href="/">Повернутися на головну</a>
-    </div>
+    <p>Якщо ви бажаєте уточнити, змінити або видалити надані вами дані, зверніться через Telegram.</p>
+    <div class="back"><a href="/">Повернутися на головну</a></div>
   </div>
 </body>
 </html>
